@@ -29,11 +29,11 @@ class QuizInterface:
                                                font=('Courier', 15, 'bold'), fill="white", justify="center")
 
         img_button_1 = PhotoImage(file="images/true.png")
-        button_true = Button(master=self.window, image=img_button_1, command=self.send_true)
+        button_true = Button(master=self.window, image=img_button_1, command=self.send_true, bd=0)
         button_true.grid(column=0, row=2, padx=(36, 0), pady=(20, 0))
 
         img_button_2 = PhotoImage(file="images/false.png")
-        button_false = Button(master=self.window, image=img_button_2, command=self.send_false)
+        button_false = Button(master=self.window, image=img_button_2, command=self.send_false, bd=0)
         button_false.grid(column=1, row=2, pady=(20, 0))
 
         self.get_next_question()

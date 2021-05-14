@@ -1,16 +1,18 @@
 from question_model import Question
-from data import question_data
+# from data import question_data
+from data import Request_question
 import html
 
 
 class QuizBrain:
-    def __init__(self, q_list):
+    def __init__(self, q_list, question_obj: Request_question):
         self.question_number = 0
         self.score = 0
         self.question_list = q_list
         self.current_question = None
         self.high_score = 0
         self.check_high_score()
+        self.question_obj = question_obj
 
     def still_has_questions(self):
         if self.question_number < len(self.question_list):
@@ -63,8 +65,8 @@ class QuizBrain:
             file_r.close()
 
     def fetch_more_ques(self):
-        print(question_data)
-        for question in question_data:
+        print(self.question_obj.fetch_questions())
+        for question in self.question_obj.fetch_questions():
             question_text = html.unescape(question["question"])
             question_answer = question["correct_answer"]
             new_question = Question(question_text, question_answer)
