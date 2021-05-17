@@ -1,5 +1,4 @@
 from question_model import Question
-# from data import question_data
 from data import Request_question
 from quiz_brain import QuizBrain
 from ui import QuizInterface
@@ -8,7 +7,7 @@ import html
 question_bank = []
 
 questions = Request_question()
-# print(questions.fetch_questions())
+
 def make_question_bank():
     global question_bank
     for question in questions.question_data:
